@@ -4,6 +4,7 @@
             <div slot="center">购物街</div>
         </nav-bar>
         <home-swiper :banners="banner"></home-swiper>
+        <home-recommend :recommend="recommend"></home-recommend>
     </div>
 </template>
 
@@ -11,6 +12,7 @@
     import NavBar from "@/components/common/nav/NavBar";
     import {getHomeMultiData} from "@/network/home";
     import HomeSwiper from "@/views/home/child/HomeSwiper";
+    import HomeRecommend from "@/views/home/child/HomeRecommend";
 
     export default {
         name: "Home",
@@ -24,6 +26,7 @@
         components: {
             NavBar,
             HomeSwiper,
+            HomeRecommend
         },
         created() {
             getHomeMultiData().then(res => {

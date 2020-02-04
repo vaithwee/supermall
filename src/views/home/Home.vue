@@ -6,6 +6,7 @@
         <home-swiper :banners="banner"></home-swiper>
         <home-recommend :recommend="recommend"></home-recommend>
         <home-future></home-future>
+        <tab-bar-control :titles="['流行', '新款', '精选']"></tab-bar-control>
         <ul>
             <li>1</li>
             <li>2</li>
@@ -117,6 +118,7 @@
     import HomeSwiper from "@/views/home/child/HomeSwiper";
     import HomeRecommend from "@/views/home/child/HomeRecommend";
     import HomeFuture from "@/views/home/child/HomeFuture";
+    import TabBarControl from "@/components/content/TabBarControl";
 
     export default {
         name: "Home",
@@ -128,6 +130,7 @@
             }
         },
         components: {
+            TabBarControl,
             NavBar,
             HomeSwiper,
             HomeRecommend,

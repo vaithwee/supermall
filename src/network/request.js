@@ -1,7 +1,7 @@
 import Axios from "axios";
 export function request(config) {
     const instance = Axios.create({
-        baseURL: 'http://123.207.32.32:8000/',
+        baseURL: 'http://123.207.32.32:8000/api/hy',
         timeout: 60000,
     });
 

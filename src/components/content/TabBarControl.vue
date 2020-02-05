@@ -30,10 +30,10 @@
 </script>
 
 <style scoped>
-.tab-bar-control {
-    display: flex;
-    height: 32px;
-}
+    .tab-bar-control {
+        display: flex;
+        height: 32px;
+    }
     .tab-bar-control-item {
         flex: 1;
         text-align: center;
@@ -41,12 +41,12 @@
         height: 32px;
         line-height: 32px;
     }
-.tab-bar-control-item span {
-    width: 33%;
-    height: 2px;
-    padding: 5px 10px;
+    .tab-bar-control-item span {
+        width: 33%;
+        height: 2px;
+        padding: 5px 10px;
 
-}
+    }
     .active {
         border-bottom: 2px solid var(--color-tint);
         color: var(--color-high-text);

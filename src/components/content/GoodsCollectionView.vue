@@ -1,6 +1,6 @@
 <template>
     <div class="goods-collection-view">
-        <goods-collection-view-item v-for="goods in clist" :info="goods" :key="goods.show.img">
+        <goods-collection-view-item v-for="goods in clist" :info="goods">
 
         </goods-collection-view-item>
     </div>

@@ -3,7 +3,7 @@
         <nav-bar class="home-nav">
             <div slot="center">购物街</div>
         </nav-bar>
-        <scroll class="home-content" :is-show-back-to-top="true">
+        <scroll class="home-content" :is-show-back-to-top="true" @pullingUp="loadMoreData" ref="scroll">
             <home-swiper :banners="banner"></home-swiper>
             <home-recommend :recommend="recommend"></home-recommend>
             <home-future></home-future>
@@ -184,6 +184,7 @@
                     console.log(res);
                     this.goods[type].list.push(...res.data.list);
                     this.goods[type].page += 1;
+                    this.$refs.scroll && this.$refs.scroll.finishPullingUp();
                 });
             },
             tabControlValueChanged(index){
@@ -200,6 +201,10 @@
                         break;
 
                 }
+            },
+            loadMoreData() {
+                console.log("load more data", this.currentType);
+                this.getGoodsDataByType(this.currentType);
             }
         }
     }

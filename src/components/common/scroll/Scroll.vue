@@ -31,6 +31,7 @@
             this.scroll = new BetterScroll(this.$refs.wrapper, {
                 click: true,
                 probeType: 3,
+                pullUpLoad: true,
             });
 
             this.scroll.on("scroll", (position) => {
@@ -38,10 +39,19 @@
                 this.isScrollToShowBackTopPosition = -position.y > 1000;
             });
 
+            this.scroll.on('pullingUp', () => {
+                console.log("pulling up");
+               this.$emit('pullingUp');
+            });
+
         },
         methods: {
             backToTopClick() {
                 this.scroll.scrollTo(0, 0, 500);
+            },
+            finishPullingUp() {
+                console.log("finish pull up");
+                this.scroll && this.scroll.finishPullUp && this.scroll.finishPullUp();
             }
         },
         computed: {

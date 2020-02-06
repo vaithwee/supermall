@@ -3,7 +3,7 @@
         <nav-bar class="home-nav">
             <div slot="center">购物街</div>
         </nav-bar>
-        <scroll class="home-content">
+        <scroll class="home-content" :is-show-back-to-top="true">
             <home-swiper :banners="banner"></home-swiper>
             <home-recommend :recommend="recommend"></home-recommend>
             <home-future></home-future>

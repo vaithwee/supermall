@@ -3,7 +3,7 @@
         <div class="content">
             <slot></slot>
         </div>
-        <div v-show="isShowBackToTop" class="back-to-top" @click="backToTopClick">
+        <div v-show="isShowBackToTopButton" class="back-to-top" @click="backToTopClick">
             <img src="~assets/img/common/top.png" alt="">
         </div>
     </div>
@@ -23,18 +23,30 @@
         },
         data() {
             return {
-                scroll: null
+                scroll: null,
+                isScrollToShowBackTopPosition : false
             }
         },
         mounted() {
             this.scroll = new BetterScroll(this.$refs.wrapper, {
                 click: true,
+                probeType: 3,
+            });
+
+            this.scroll.on("scroll", (position) => {
+                // console.log(position);
+                this.isScrollToShowBackTopPosition = -position.y > 1000;
             });
 
         },
         methods: {
             backToTopClick() {
                 this.scroll.scrollTo(0, 0, 500);
+            }
+        },
+        computed: {
+            isShowBackToTopButton() {
+                return this.isShowBackToTop && this.isScrollToShowBackTopPosition;
             }
         }
     }

@@ -52,6 +52,9 @@
             finishPullingUp() {
                 console.log("finish pull up");
                 this.scroll && this.scroll.finishPullUp && this.scroll.finishPullUp();
+            },
+            refresh() {
+                this.scroll && this.scroll.refresh();
             }
         },
         computed: {

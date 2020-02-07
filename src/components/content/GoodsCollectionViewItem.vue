@@ -1,6 +1,6 @@
 <template>
     <div class="goods-item">
-        <img class="goodItem.image" :src="info.show.img" alt="">
+        <img class="goodItem.image" :src="info.show.img" alt="" @load="imageDidLoad">
         <div class="goods-info">
             <p >{{info.title}}</p>
             <span class="price">{{info.price}}</span>
@@ -15,6 +15,11 @@
         name: "GoodsCollectionViewItem",
         props: {
             info: null,
+        },
+        methods: {
+            imageDidLoad() {
+                this.$bus.$emit('goodsItemImageDidLoad');
+            }
         }
     }
 </script>

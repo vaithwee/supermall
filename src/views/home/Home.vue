@@ -165,6 +165,9 @@
         },
         created() {
             this.initData();
+            this.$bus.$on('goodsItemImageDidLoad', () => {
+                this.debounce(this.$refs.scroll.refresh, 200);
+            });
         },
         methods: {
             initData() {
@@ -205,6 +208,15 @@
             loadMoreData() {
                 console.log("load more data", this.currentType);
                 this.getGoodsDataByType(this.currentType);
+            },
+            debounce(fuc, delay) {
+                let timer = null;
+                return function (...args) {
+                    if (timer) clearTimeout(timer);
+                    timer = setTimeout(() => {
+                        fuc.apply(this, args);
+                    }, delay);
+                };
             }
         }
     }
